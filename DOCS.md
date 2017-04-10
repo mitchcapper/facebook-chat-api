@@ -558,17 +558,6 @@ __Arguments__
 * `name` - A string being the name of the item you're looking for.
 * `callback(err, obj)` - A callback called when the search is done (either with an error or with the resulting object). `obj` is an array which contains all of the items that facebook graph search found, ordered by "importance".  Each item in the array has the following properties: `userID`,`photoUrl`,`indexRank`, `name`, `isVerified`, `profileUrl`, `category`, `score`, `type` (type is generally user, group, page, event or app).
 
-    userID: utils.formatID(data.uid.toString()),
-    photoUrl: data.photo,
-    indexRank: data.index_rank,
-    name: data.text,
-    isVerified: data.is_verified,
-    profileUrl: data.path,
-    category: data.category,
-    score: data.score,
-    type: data.type,
-
-
 __Example__
 
 ```js
@@ -599,7 +588,7 @@ Will get some information about the given users.
 __Arguments__
 
 * `ids` - Either a string/number for one ID or an array of strings/numbers for a batched query.
-* `callback(err, obj)` - A callback called when the query is done (either with an error or with an confirmation object). `obj` is a mapping from userId to another object containing the following properties: `name`, `firstName`, `vanity`, `thumbSrc`, `profileUrl`, `gender`, `type`, `isFriend`, `isBirthday`, `searchTokens`, `alternateName`.
+* `callback(err, obj)` - A callback called when the query is done (either with an error or with an confirmation object). `obj` is a mapping from userId to another object containing the following properties: `name`, `firstName`, `vanity` (user's chosen facebook handle, if any), `thumbSrc`, `profileUrl`, `gender`, `type` (type is generally user, group, page, event or app), `isFriend`, `isBirthday`, `searchTokens`, `alternateName`.
 
 __Example__
 
