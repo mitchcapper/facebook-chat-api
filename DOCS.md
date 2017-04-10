@@ -551,12 +551,23 @@ __Arguments__
 <a name="getUserID"></a>
 ### api.getUserID(name, callback)
 
-Given the full name of a Facebook user, the call will perform a Facebook Graph search and return all corresponding IDs (order determined by Facebook).
+Given the full name or vanity name of a Facebook user, event, page, group or app, the call will perform a Facebook Graph search and return all corresponding IDs (order determined by Facebook).
 
 __Arguments__
 
-* `name` - A string being the name of the person you're looking for.
-* `callback(err, obj)` - A callback called when the search is done (either with an error or with the resulting object). `obj` is an array which contains all of the users that facebook graph search found, ordered by "importance".
+* `name` - A string being the name of the item you're looking for.
+* `callback(err, obj)` - A callback called when the search is done (either with an error or with the resulting object). `obj` is an array which contains all of the items that facebook graph search found, ordered by "importance".  Each item in the array has the following properties: `userID`,`photoUrl`,`indexRank`, `name`, `isVerified`, `profileUrl`, `category`, `score`, `type` (type is generally user, group, page, event or app).
+
+    userID: utils.formatID(data.uid.toString()),
+    photoUrl: data.photo,
+    indexRank: data.index_rank,
+    name: data.text,
+    isVerified: data.is_verified,
+    profileUrl: data.path,
+    category: data.category,
+    score: data.score,
+    type: data.type,
+
 
 __Example__
 
