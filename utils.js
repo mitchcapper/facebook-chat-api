@@ -239,9 +239,7 @@ function _formatAttachment(attachment1, attachment2) {
   var fileName = attachment1.filename;
   attachment1 = attachment1.mercury ? attachment1.mercury : attachment1;
   var blob = attachment1.blob_attachment;
-  var type = blob ? blob.__typename :  attachment1.attach_type;
-  if (! type)
-    type = attachment1.attach_type;
+  var type =  blob && blob.__typename ? blob.__typename : attachment1.attach_type;
   if (! type && attachment1.sticker_attachment){
     type = "StickerAttachment";
     blob = attachment1.sticker_attachment;
