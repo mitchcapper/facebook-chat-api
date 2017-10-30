@@ -429,7 +429,7 @@ function _formatAttachment(attachment1, attachment2) {
         source: blob.story_attachment.source.text,
         title: blob.story_attachment.title_with_entities.text,
         facebookUrl: blob.story_attachment.url,
-        target: blob.story_attachment.target.__typename,
+        target: blob.story_attachment.target,
         styleList: blob.story_attachment.style_list,
         url: blob.story_attachment.url
       };
